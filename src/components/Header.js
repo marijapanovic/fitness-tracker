@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../index.css';
 
-const Header = () => {
+const Header = (props) => {
     return (
             <>
                 <div className="generalProperties headerWellcome">
@@ -11,41 +11,22 @@ const Header = () => {
                 </div>
                 <div className="headerDays">
                     <ul>
-                      
-                        <li className="generalProperties">
-                            <Link to='/day/:name'> 
-                                <b>10</b><br/>
-                                <b>MON</b> 
+                    {Object.values(props.trainingsByDay).map((trainingsInDay) => (
+                        <li key={trainingsInDay[0].getDate()} className="generalProperties">
+                            <Link to={`/day/${trainingsInDay[0].getDate()}`}> 
+                                <b>{trainingsInDay[0].dateTime.getDate()}</b><br/>
+                                <b>{getDayOfWeek(trainingsInDay[0].dateTime)}</b> 
                             </Link>
                         </li>
-                            {/* <i className="material-icons right"></i> */}
-                        <li className="generalProperties">
-                            <Link to='/'>
-                                <b>11</b><br/>
-                                <b>THU</b>
-                            </Link>
-                        </li>
-                        <li className="generalProperties">
-                            <Link to='/'>
-                                <b>12</b><br/>
-                                <b>WED</b>
-                            </Link>
-                        </li>
-                        <li className="generalProperties">
-                            <Link to='/'>
-                                <b>13</b><br/>
-                                <b>THU</b>
-                            </Link>
-                        </li>
-                        <li className="generalProperties">
-                            <Link to='/'>
-                                <b>14</b><br/>
-                                <b>FRI</b>
-                            </Link>
-                        </li>
+                    ))}
                     </ul>
                 </div>
             </>
     )
 }
 export default Header;
+
+function getDayOfWeek(date) {
+    const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
+    return days[date.getDay()]
+}

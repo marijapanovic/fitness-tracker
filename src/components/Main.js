@@ -1,13 +1,13 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Home from "../Home";
-import DayDetails from "../DayDetails";
+import WeekView from "./WeekView";
+import DayView from "./DayView";
 
-const Main = () => {
+const Main = (props) => {
     return (
       <Switch>
-        <Route path="/day/:name" component={DayDetails} />
-        <Route path="/" component={Home} />
+        <Route path="/day/:date" component={DayView} />
+        <Route path="/" render={(routeProps) => <WeekView {...routeProps} trainingsByDay={props.trainingsByDay} />} />
       </Switch>
     );
   };
