@@ -4,40 +4,40 @@ import '../index.css';
 
 const Header = () => {
     return (
-        <>
-                <div className="headerWellcome">
+            <>
+                <div className="generalProperties headerWellcome">
                    <h1>Wellcome!</h1>
                    <p>Overview of your activity</p>
                 </div>
                 <div className="headerDays">
                     <ul>
                       
-                        <li>
+                        <li className="generalProperties">
                             <Link to='/day/:name'> 
                                 <b>10</b><br/>
                                 <b>MON</b> 
                             </Link>
                         </li>
                             {/* <i className="material-icons right"></i> */}
-                        <li>
+                        <li className="generalProperties">
                             <Link to='/'>
                                 <b>11</b><br/>
                                 <b>THU</b>
                             </Link>
                         </li>
-                        <li>
+                        <li className="generalProperties">
                             <Link to='/'>
                                 <b>12</b><br/>
                                 <b>WED</b>
                             </Link>
                         </li>
-                        <li>
+                        <li className="generalProperties">
                             <Link to='/'>
                                 <b>13</b><br/>
                                 <b>THU</b>
                             </Link>
                         </li>
-                        <li>
+                        <li className="generalProperties">
                             <Link to='/'>
                                 <b>14</b><br/>
                                 <b>FRI</b>
@@ -45,8 +45,7 @@ const Header = () => {
                         </li>
                     </ul>
                 </div>
-
-        </>
+            </>
     )
 }
 export default Header;
